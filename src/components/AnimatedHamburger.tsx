@@ -59,7 +59,7 @@ export default function AnimatedHamburger() {
                             </Link>
                         </DrawerClose>
                         <DrawerClose asChild>
-                            <a href="tel:812-738-8463"><PhoneIcon size={34}/></a>
+                            <a href="tel:812-5721047"><PhoneIcon size={34}/></a>
                         </DrawerClose>
                     </div>
             </DrawerContent>
