@@ -2,8 +2,17 @@ import { getOpenJobs } from "@/lib/queries/getOpenJobs"
 import JobCard from "@/components/JobCard"
 import ClientForm from "@/components/ClientForm"
 
-export default async function RequestsPage() {
+export async function getServerSideProps() {
     const results = await getOpenJobs()
+    return {
+        props: {
+            results,
+        },
+    }
+}
+
+export default async function RequestsPage({ results }: { results: any[] }) {
+    
     return(
         <div className="flex justify-between xl:justify-around bg-dark-back p-6 min-h-lvh">
             <div>
