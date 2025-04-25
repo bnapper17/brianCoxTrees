@@ -2,6 +2,7 @@ import { getNewClients } from "@/lib/queries/getNewClients"
 import ClientCard from "@/components/ClientCard"
 import ClientForm from "@/components/ClientForm"
 
+export const dynamic = 'force-dynamic'
 
 export default async function RequestsPage() {
 

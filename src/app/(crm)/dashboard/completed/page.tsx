@@ -1,6 +1,8 @@
 import { getCompletedJobs } from "@/lib/queries/getCompletedJobs"
 import JobCard from "@/components/JobCard"
 
+export const dynamic = 'force-dynamic'
+
 export default async function RequestsPage() {
     const results = await getCompletedJobs()
     return(

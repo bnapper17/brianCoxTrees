@@ -4,6 +4,8 @@ import SearchForm from "@/components/SearchForm"
 import ClientForm from "@/components/ClientForm"
 import { getClientSearchResults } from "@/lib/queries/getClientSearchResults"
 
+export const dynamic = 'force-dynamic'
+
 export default async function RequestsPage( { searchParams }: { searchParams: Promise<{ [key: string]: string | undefined }> } ) {
 
     const { searchText } = await searchParams

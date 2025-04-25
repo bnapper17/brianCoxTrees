@@ -2,6 +2,7 @@ import { getCompletedBids } from "@/lib/queries/getCompletedBids"
 import JobCard from "@/components/JobCard"
 import ClientForm from "@/components/ClientForm"
 
+export const dynamic = 'force-dynamic'
 
 export default async function BidsPage() {
     const results = await getCompletedBids()
