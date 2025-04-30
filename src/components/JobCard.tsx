@@ -27,7 +27,7 @@ export default function JobCard({ name, title, phone, email, address, id, create
                 <div className="flex md:hidden gap-2">
                     {phone && <a href={`tel:${phone}`}><PhoneIcon/></a>}
                     {email && <a href={`mailto:${email}`}><Mail/></a>}
-                    {address && <a href={`//maps.google.com/?q=${address}`}><Map /></a>}
+                    {address && <a href={`//maps.apple.com/?q=${address}`}><Map /></a>}
                 </div>
                 <div className="hidden md:flex flex-col items-end gap-3 mb-4">
                     {phone && <div className="flex gap-2">
@@ -40,7 +40,7 @@ export default function JobCard({ name, title, phone, email, address, id, create
                     </div>}
                     {address && <div className="flex gap-2">
                         <p>{city}</p>
-                        <a href={`//maps.google.com/?q=${address}`}><Map /></a>
+                        <a href={`//maps.apple.com/?q=${address}`}><Map /></a>
                     </div>}
                 </div>
             </div>

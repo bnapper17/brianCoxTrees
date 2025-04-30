@@ -26,7 +26,7 @@ export default function ClientCard({ name, phone, email, city, address, id}: Pro
             <div className="flex md:hidden gap-2">
                 {phone && <a href={`tel:${phone}`}><PhoneIcon/></a>}
                 {email && <a href={`mailto:${email}`}><Mail/></a>}
-                {address && <a href={`//maps.google.com/?q=${address}`}><Map /></a>}
+                {address && <a href={`//maps.apple.com/?q=${address}`}><Map /></a>}
             </div>
 
             {/* larger screen client info */}
@@ -41,7 +41,7 @@ export default function ClientCard({ name, phone, email, city, address, id}: Pro
                 </div>}
                 {city && <div className="flex gap-2">
                     <p>{city}</p>
-                    <a href={`//maps.google.com/?q=${address}`}><Map /></a>
+                    <a href={`//maps.apple.com/?q=${address}`}><Map /></a>
                 </div>}
             </div>
         </div>
