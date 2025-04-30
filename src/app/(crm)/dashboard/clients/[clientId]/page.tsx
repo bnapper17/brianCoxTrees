@@ -16,7 +16,7 @@ export default async function ClientPage({ params }: { params: Promise<{ clientI
     return (
         <div className="flex flex-col items-center justify-between xl:justify-around bg-dark-back p-6">
             <div className="p-4 bg-back shadow-lg rounded-md w-sm lg:w-xl">
-                <ClientForm client={client} newClient={false}/>
+                <ClientForm client={client} jobs={clientJobs} newClient={false}/>
                 <div className="mt-4">
                     {clientJobs.map((job) => (
                         <Link href={`/dashboard/jobs/${job.id}`} key={job.id}>

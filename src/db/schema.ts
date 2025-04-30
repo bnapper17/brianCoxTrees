@@ -12,7 +12,7 @@ export const clients = pgTable("clients", {
     state: varchar("state", { length: 2}),
     zip: varchar("zip", { length: 10 }),
     notes: text("notes"),
-    estimateGiven: boolean("estimate_given").notNull().default(false),
+    archived: boolean("archived").notNull().default(false),
     createdAt: timestamp("created_at").notNull().defaultNow(),
     updatedAt: timestamp("updated_at").notNull().defaultNow().$onUpdate(() => new Date())
 })

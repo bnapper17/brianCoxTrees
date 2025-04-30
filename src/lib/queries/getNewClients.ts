@@ -1,12 +1,13 @@
 import { db } from "@/db"
 import { clients, jobs } from "@/db/schema"
-import { eq, or, and, notExists, exists } from "drizzle-orm"
+import { eq, or, and, notExists, exists, asc } from "drizzle-orm"
 
 
 export async function getNewClients() {
     const newClients = await db.select()
         .from(clients)
-        .where(or(notExists(
+        .where(and(eq(clients.archived, false),            
+            or(notExists(
             db.select()
                 .from(jobs)
                 .where(eq(jobs.clientId, clients.id))
@@ -17,7 +18,8 @@ export async function getNewClients() {
                         eq(jobs.bidCompleted, false)))
             )
         ))
-        .orderBy(clients.createdAt)
+    )
+        .orderBy(clients.updatedAt)
 
     return newClients
     
