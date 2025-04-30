@@ -11,6 +11,7 @@ import { toast } from "sonner";
 
 import { useAction } from "next-safe-action/hooks"
 import { saveJobAction } from "@/app/actions/saveJobAction"
+import { useRouter } from "next/navigation"
 
 import { type selectClientSchemaType } from "@/zod-schemas/client"
 
@@ -22,6 +23,8 @@ type Props = {
 }
 
 export default function JobForm({ client, job }: Props) {
+
+    const router = useRouter()
 
     const defaultValues: insertJobsSchemaType = {
             id: job?.id ?? 0,
@@ -54,8 +57,9 @@ export default function JobForm({ client, job }: Props) {
         })
 
     function submitForm(data: insertJobsSchemaType) {
-            console.log(data)
+
             saveJob(data)
+            router.push(`/dashboard/clients/${client?.id}`)
         }
 
     return (
