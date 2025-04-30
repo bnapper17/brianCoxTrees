@@ -9,11 +9,13 @@ type Props = {
     completedBids: object[],
     openJobs: object[],
     completedJobs: object[],
-    clients: object[]
-    newClients: object[]
+    clients: object[],
+    newClients: object[],
+    archivedClients: object[],
+    archivedJobs: object[],
 }
 
-export default function Dashboard({ completedBids, openJobs, completedJobs, clients, newClients }: Props) {
+export default function Dashboard({ completedBids, openJobs, completedJobs, clients, newClients, archivedClients, archivedJobs }: Props) {
 
     const totalRequests = newClients.length
 
@@ -27,6 +29,7 @@ export default function Dashboard({ completedBids, openJobs, completedJobs, clie
                 <Card title={"Open Jobs:"} description={`${openJobs.length.toString()} open jobs`} url={"/dashboard/jobs"} />
                 <Card title={"Clients:"} description={`${clients.length.toString()} clients`} url={"/dashboard/clients"} />
                 <Card title={"Completed Jobs:"} description={`${completedJobs.length.toString()} jobs completed`} url={"/dashboard/completed"} />
+                <Card title={"Archive:"} description={`${archivedClients.length.toString()} clients archived`} description2={`${archivedJobs.length.toString()} jobs archived`} url={"/dashboard/archive"} />
             </div>
             <div className="hidden md:block p-4 bg-back shadow-lg rounded-md text-two h-fit w-sm lg:w-md xl:w-xl">
                 <div>
