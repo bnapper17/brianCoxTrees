@@ -15,7 +15,7 @@ export async function getNewClients() {
                 db.select()
                     .from(jobs)
                     .where(and(eq(jobs.clientId, clients.id),
-                        eq(jobs.bidCompleted, false)))
+                        eq(jobs.bidCompleted, false), eq(jobs.archived, false)))
             )
         ))
     )
