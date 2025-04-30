@@ -40,6 +40,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
                     email={result.email}
                     phone={result.phone}
                     address={`${result.address1}, ${result.city}, ${result.state} ${result.zip}`}
+                    city={result.city}
                     id = {result.id.toString()}
                     createdAt={result.requestDate}
                     />
