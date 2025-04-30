@@ -1,6 +1,6 @@
 import { db } from "@/db"
 import { clients, jobs } from "@/db/schema"
-import { eq, or, and, notExists, exists, asc } from "drizzle-orm"
+import { eq, or, and, notExists, exists } from "drizzle-orm"
 
 
 export async function getNewClients() {
