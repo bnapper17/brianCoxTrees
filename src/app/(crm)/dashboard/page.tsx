@@ -34,7 +34,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
 
     return(
         <div className="flex justify-between xl:justify-around p-6 bg-dark-back">
-            <div className="bg-dark-back h-lvh">
+            <div className="bg-dark-back min-h-lvh">
                 <SearchForm searchType="jobs" className="mb-4 lg:mb-10" />
                 {searchResults.map((result) => (
                     <JobCard 
