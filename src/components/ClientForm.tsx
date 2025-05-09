@@ -1,8 +1,10 @@
 "use client"
 
-import ClientFields from "@/components/ClientFields";
 import { insertClientSchema, type insertClientSchemaType, type selectClientSchemaType } from "@/zod-schemas/client"
 import { Form } from "@/components/ui/form";
+import { InputWithLabel } from "@/components/inputs/inputWithLabel"
+import { TextAreaWithLabel } from "@/components/inputs/TextareaWithLabel"
+import { PhoneInputWithLabel } from "@/components/inputs/PhoneInputWithLabel";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod"
 
@@ -12,6 +14,7 @@ import { toast } from "sonner";
 
 import { useAction } from "next-safe-action/hooks"
 import { saveClientAction } from "@/app/actions/saveClientAction"
+
 
 type Props = {
     client?: selectClientSchemaType
@@ -62,7 +65,50 @@ export default function ClientForm({ client, newClient = true, jobs }: Props) {
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(submitForm)}>
-                <ClientFields />
+            <div>
+                <div className="flex gap-4">
+                    <InputWithLabel
+                        fieldTitle="First Name"
+                        nameInSchema="firstName"
+                        />
+                    <InputWithLabel
+                        fieldTitle="Last Name"
+                        nameInSchema="lastName"
+                        />
+                </div>
+                <InputWithLabel
+                    fieldTitle="Street Address"
+                    nameInSchema="address1"
+                    />
+                <div className = "flex gap-4">
+                    <InputWithLabel
+                        fieldTitle="City"
+                        nameInSchema="city"
+                        />
+                    <InputWithLabel
+                        fieldTitle="State"
+                        nameInSchema="state"
+                        />
+                    <InputWithLabel
+                        fieldTitle="Zip"
+                        nameInSchema="zip"
+                        />
+                </div>
+                <div className = "flex gap-4">
+                    <PhoneInputWithLabel
+                        fieldTitle="Phone"
+                        nameInSchema="phone"
+                        />
+                    <InputWithLabel
+                        fieldTitle="email"
+                        nameInSchema="email"
+                        />
+                </div>
+                <TextAreaWithLabel
+                    fieldTitle="Notes"
+                    nameInSchema="notes"
+                    />
+            </div>
                 <div>
                     <Button 
                         type="submit" 

@@ -1,6 +1,8 @@
 "use client"
 
-import JobFields from "@/components/JobFields";
+import { InputWithLabel } from "@/components/inputs/inputWithLabel"
+import { TextAreaWithLabel } from "@/components/inputs/TextareaWithLabel"
+import { CheckboxWithLabel } from "@/components/inputs/CheckboxWithLabel"
 import { insertJobsSchema, type insertJobsSchemaType, type selectJobsSchemaType } from "@/zod-schemas/job"
 
 import { Form } from "@/components/ui/form";
@@ -76,7 +78,37 @@ export default function JobForm({ client, job }: Props) {
                         isActive = {false}
                     />
                 </div>
-                <JobFields />
+                <div>
+                    <InputWithLabel
+                        fieldTitle="Job"
+                        nameInSchema="title"
+                    />
+                    <TextAreaWithLabel
+                        fieldTitle="Notes"
+                        nameInSchema="notes"
+                    />
+                    <div className="flex justify-between">
+                        <InputWithLabel
+                            fieldTitle="Bid Amount"
+                            nameInSchema="bidAmount"
+                            className="w-1/2"
+                        />
+                        <div className="flex flex-col gap-6">
+                            <CheckboxWithLabel
+                                fieldTitle="Accepted"
+                                nameInSchema="bidAccepted"
+                                message="Accepted"
+                                disabled={!job?.bidCompleted}
+                                />
+                            <CheckboxWithLabel
+                                fieldTitle="Completed"
+                                nameInSchema="completed"
+                                message="Completed"
+                                disabled={!job?.bidAccepted}
+                                />
+                        </div>
+                    </div>
+                </div>
                 <div>
                 <Button 
                     type="submit" 
