@@ -9,7 +9,7 @@ import { actionClient } from "@/lib/safe-action"
 import { flattenValidationErrors } from "next-safe-action"
 
 export const saveJobAction = actionClient
-    .metadata({ actionName: "saveClientAction" })
+    .metadata({ actionName: "saveJobAction" })
     .schema(insertJobsSchema, {
         handleValidationErrorsShape: async (ve) => flattenValidationErrors(ve).fieldErrors,
     })

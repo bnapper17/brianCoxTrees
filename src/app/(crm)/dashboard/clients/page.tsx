@@ -15,7 +15,7 @@ export default async function RequestsPage( { searchParams }: { searchParams: Pr
     if(!searchText) return(
         <div className="flex justify-between xl:justify-around p-6 bg-dark-back">
             <div className="bg-dark-back min-h-lvh">
-                <SearchForm searchType="clients" placeholder="clients" className="mb-4 lg:mb-10 md:w-144" />
+                <SearchForm searchType="/clients" placeholder="clients" className="mb-4 lg:mb-10 md:w-144" />
 
                 {results.map((result) => (
                     
