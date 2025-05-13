@@ -34,6 +34,7 @@ export default async function Archivepage() {
                             email={client.email}
                             city={client.city}
                             address={client.address1}
+                            business={client.businessName}
                             />
                         ))}
                     </div>
@@ -51,6 +52,7 @@ export default async function Archivepage() {
                             city={job.city}
                             address={job.address1}
                             createdAt={job.requestDate}
+                            business={job.businessName}
                             />
                             
                         ))}

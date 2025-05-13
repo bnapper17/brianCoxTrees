@@ -26,9 +26,8 @@ export default async function RequestsPage( { searchParams }: { searchParams: Pr
                     phone={result?.phone}
                     city={result.city}
                     address={`${result.address1} ${result.city} ${result.state} ${result.zip}`}
-                    id = {result.id.toString()
-                    
-                    }
+                    id = {result.id.toString()}
+                    business={result.businessName}
                     />
                     
                 ))}
@@ -58,6 +57,7 @@ export default async function RequestsPage( { searchParams }: { searchParams: Pr
                     phone={result?.phone}
                     city={result.city}
                     id = {result.id.toString()}
+                    business={result.businessName}
                     />
                     
                 ))}

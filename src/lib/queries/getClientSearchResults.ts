@@ -8,6 +8,7 @@ export async function getClientSearchResults(searchText: string) {
         .where(or(
             ilike(clients.firstName, `%${searchText}%`),
             ilike(clients.lastName, `%${searchText}%`),
+            ilike(clients.businessName, `%${searchText}%`),
             ilike(clients.phone, `%${searchText}%`),
             ilike(clients.email, `%${searchText}%`),
             ilike(clients.city, `%${searchText}%`),

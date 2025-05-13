@@ -29,6 +29,7 @@ export default function ClientForm({ client, newClient = true, jobs, className }
         id: client?.id ?? 0,
         firstName: client?.firstName ?? "",
         lastName: client?.lastName ?? "",
+        businessName: client?.businessName ?? "",
         email: client?.email ?? "",
         phone: client?.phone ?? "",
         address1: client?.address1 ?? "",
@@ -77,6 +78,10 @@ export default function ClientForm({ client, newClient = true, jobs, className }
                         nameInSchema="lastName"
                         />
                 </div>
+                <InputWithLabel
+                    fieldTitle="Business Name"
+                    nameInSchema="businessName"
+                    />
                 <InputWithLabel
                     fieldTitle="Street Address"
                     nameInSchema="address1"

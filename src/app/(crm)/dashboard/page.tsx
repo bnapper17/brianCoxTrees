@@ -47,6 +47,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
                     city={result.city}
                     id = {result.id.toString()}
                     createdAt={result.requestDate}
+                    business={result.businessName}
                     />
                 ))}
             </div>

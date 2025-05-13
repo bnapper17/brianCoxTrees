@@ -22,6 +22,7 @@ export default async function RequestsPage() {
                         city={client.city}
                         address={`${client.address1} ${client.city} ${client.state} ${client.zip}`}
                         updatedAt={client.updatedAt}
+                        business={client.businessName}
                         />
                     ))}
                 </div>

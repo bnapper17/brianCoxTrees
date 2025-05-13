@@ -9,6 +9,7 @@ export async function getJobSearchResults(searchText: string) {
         title: jobs.title,
         firstName: clients.firstName,
         lastName: clients.lastName,
+        businessName: clients.businessName,
         email: clients.email,
         phone: clients.phone,
         address1: clients.address1,
@@ -23,6 +24,7 @@ export async function getJobSearchResults(searchText: string) {
         .where(or(
             ilike(clients.firstName, `%${searchText}%`),
             ilike(clients.lastName, `%${searchText}%`),
+            ilike(clients.businessName, `%${searchText}%`),
             ilike(clients.phone, `%${searchText}%`),
             ilike(clients.email, `%${searchText}%`),
             ilike(clients.city, `%${searchText}%`),

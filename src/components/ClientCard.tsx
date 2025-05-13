@@ -7,6 +7,7 @@ import { formatDistanceToNow } from "date-fns";
 type Props = {
     id: string,
     name: string,
+    business?: string | null,
     phone: string,
     email?: string | null,
     city?: string | null,
@@ -14,14 +15,15 @@ type Props = {
     updatedAt?: Date | null
 }
 
-export default function ClientCard({ name, phone, email, city, address, id, updatedAt}: Props) {
+export default function ClientCard({ name, business, phone, email, city, address, id, updatedAt}: Props) {
     
     return(
         <div className="p-4 w-xs md:w-md xl:w-xl mb-6 bg-back shadow-lg rounded-md">
             <div className="flex justify-between items-center">
-                <div className="flex flex-col gap-2 ">
+                <div>
                     <Link href={`/dashboard/clients/${id}`}>
                             <h2 className="text-2xl md:text-3xl text-two">{name}</h2>
+                            {business && <h3 className="text-one text-xl mt-2">{business}</h3>}
                     </Link>
                 </div>
 

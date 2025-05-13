@@ -20,6 +20,7 @@ export default async function RequestsPage() {
                     address={`${result.address1}, ${result.city}, ${result.state} ${result.zip}`}
                     id = {result.id.toString()}
                     createdAt={result.requestDate}
+                    business={result.businessName}
                     />
                 ))}
             </div>

@@ -9,6 +9,7 @@ export async function getArchivedJobs() {
         title: jobs.title,
         firstName: clients.firstName,
         lastName: clients.lastName,
+        businessName: clients.businessName,
         email: clients.email,
         phone: clients.phone,
         address1: clients.address1,

@@ -20,6 +20,7 @@ export const saveClientAction = actionClient
             const result = await db.insert(clients).values({
                 firstName: client.firstName,
                 lastName: client.lastName,
+                businessName: client.businessName,
                 email: client.email,
                 phone: client.phone,
                 address1: client.address1,
@@ -37,6 +38,7 @@ export const saveClientAction = actionClient
         const result = await db.update(clients).set({
             firstName: client.firstName,
             lastName: client.lastName,
+            businessName: client.businessName,
             email: client.email,
             phone: client.phone,
             address1: client.address1,
