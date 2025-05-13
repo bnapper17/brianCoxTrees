@@ -23,7 +23,7 @@ export default function AnimatedHamburger() {
         <Drawer direction="right">
             <DrawerTrigger asChild>
                 <div
-                    className="flex md:hidden flex-col justify-center items-center mr-4"
+                    className="flex lg:hidden flex-col justify-center items-center mr-4"
                     >
                     <span
                         className={`bg-two block transition-all duration-300 ease-out h-1 w-8 rounded-sm`}

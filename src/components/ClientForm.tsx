@@ -20,9 +20,10 @@ type Props = {
     client?: selectClientSchemaType
     newClient?: boolean
     jobs?: object[]
+    className?: string
 }
 
-export default function ClientForm({ client, newClient = true, jobs }: Props) {
+export default function ClientForm({ client, newClient = true, jobs, className }: Props) {
 
     const defaultValues: insertClientSchemaType = {
         id: client?.id ?? 0,
@@ -65,7 +66,7 @@ export default function ClientForm({ client, newClient = true, jobs }: Props) {
     return (
         <Form {...form}>
             <form onSubmit={form.handleSubmit(submitForm)}>
-            <div>
+            <div className={className}>
                 <div className="flex gap-4">
                     <InputWithLabel
                         fieldTitle="First Name"

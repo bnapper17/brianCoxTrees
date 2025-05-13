@@ -6,6 +6,16 @@ import { getClientJobs } from "@/lib/queries/getClientJobs"
 import { formatDistanceToNow } from "date-fns";
 import Link from "next/link"
 import AddJobButton from "@/components/AddJobButton"
+import DeleteClientForm from "@/components/DeleteClientForm"
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger
+} from "@/components/ui/dialog"
+import { EllipsisVertical } from "lucide-react"
 
 
 
@@ -20,8 +30,22 @@ export default async function ClientPage({ params }: { params: Promise<{ clientI
 
     return (
         <div className="flex flex-col items-center justify-between xl:justify-around bg-dark-back p-6">
-            <div className="p-4 bg-back shadow-lg rounded-md w-sm lg:w-xl">
-                <ClientForm client={client} jobs={openClientJobs} newClient={false}/>
+            <div className="relative p-4 bg-back shadow-lg rounded-md w-sm lg:w-xl">
+                <Dialog>
+                    <DialogTrigger asChild className="absolute right-2">
+                        <EllipsisVertical className="text-two cursor-pointer"/>
+                    </DialogTrigger>
+                    <DialogContent>
+                        <DialogHeader>
+                            <DialogTitle>Delete Client?</DialogTitle>
+                            <DialogDescription>
+                                Type clients name then click Delete button to permanently delete, or exit and switch the archive toggle to archive instead.
+                            </DialogDescription>
+                        </DialogHeader>
+                        <DeleteClientForm client={client}/>
+                    </DialogContent>
+                </Dialog>
+                <ClientForm client={client} jobs={openClientJobs} newClient={false} className="mt-6"/>
                 <div className="mt-4">
                     {openClientJobs.map((job) => (
                         <Link href={`/dashboard/jobs/${job.id}`} key={job.id}>

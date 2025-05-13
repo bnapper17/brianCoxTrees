@@ -14,7 +14,7 @@ export default function CrmHeader() {
             </div>
 
             {/* navigation links on large screens */}
-            <div className="hidden md:flex justify-evenly gap-5 items-end text-xl md:text-2xl text-two font-semibold md:mr-8">
+            <div className="hidden lg:flex justify-evenly gap-5 items-end text-xl md:text-2xl text-two font-semibold md:mr-8">
                 <Link href="/dashboard/requests" title="Requests">
                     <h2 className=" hover:underline">Requests</h2>
                 </Link>
