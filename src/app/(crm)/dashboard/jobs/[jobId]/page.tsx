@@ -3,6 +3,7 @@ import DeleteJobForm from "@/components/DeleteJobForm"
 import { getJob } from "@/lib/queries/getJob"
 import { getClient } from "@/lib/queries/getClient"
 import Link from "next/link"
+import { PhoneIcon, Mail, Map} from "lucide-react";
 
 import {
     Dialog,
@@ -44,8 +45,23 @@ export default async function JobPage({ params }: {params: Promise<{jobId: strin
                         </DialogContent>
                     </Dialog>
                 </div>
-                <p className="text-xl">{client.phone}</p>
-                <p className="text-xl">{client.email}</p>
+                <div className="flex">
+                    <p className="text-xl mr-4">{client.phone}</p>
+                    <a href={`tel:${client.phone}`}><PhoneIcon/></a>
+                </div>
+                <div className="flex items-end">
+                    <div className="mr-4">
+                        <p className="text-xl">{client.address1}</p>
+                        <p className="text-xl">{`${client.city}, ${client.state} ${client.zip}`}</p>
+                    </div>
+                    <Link href={`//maps.apple.com/?q=${client.address1}, ${client.city}, ${client.state}, ${client.zip}`}>
+                        <Map/>
+                    </Link>
+                </div>
+                <div className="flex">
+                    <p className="text-xl mr-4">{client.email}</p>
+                    <a href={`mailto:${client.email}`}><Mail/></a>
+                </div>
                 <JobForm job={job} client={client}/>
             </div>
         </div>
