@@ -21,6 +21,7 @@ export default async function RequestsPage() {
                         phone={client.phone}
                         city={client.city}
                         address={`${client.address1} ${client.city} ${client.state} ${client.zip}`}
+                        updatedAt={client.updatedAt}
                         />
                     ))}
                 </div>
