@@ -47,20 +47,20 @@ export default async function JobPage({ params }: {params: Promise<{jobId: strin
                 </div>
                 <div className="flex">
                     <p className="text-xl mr-4">{client.phone}</p>
-                    <a href={`tel:${client.phone}`}><PhoneIcon/></a>
+                    {client.phone && <a href={`tel:${client.phone}`}><PhoneIcon/></a>}
                 </div>
                 <div className="flex items-end">
                     <div className="mr-4">
                         <p className="text-xl">{client.address1}</p>
-                        <p className="text-xl">{`${client.city}, ${client.state} ${client.zip}`}</p>
+                        <p className="text-xl">{`${client.city} ${client.state} ${client.zip}`}</p>
                     </div>
-                    <Link href={`//maps.apple.com/?q=${client.address1}, ${client.city}, ${client.state}, ${client.zip}`}>
+                    {client.city && <Link href={`//maps.apple.com/?q=${client.address1}, ${client.city}, ${client.state}, ${client.zip}`}>
                         <Map/>
-                    </Link>
+                    </Link>}
                 </div>
                 <div className="flex">
                     <p className="text-xl mr-4">{client.email}</p>
-                    <a href={`mailto:${client.email}`}><Mail/></a>
+                    {client.email && <a href={`mailto:${client.email}`}><Mail/></a>}
                 </div>
                 <JobForm job={job} client={client}/>
             </div>
