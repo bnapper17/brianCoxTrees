@@ -16,6 +16,7 @@ export async function getCompletedBids() {
         city: clients.city,
         state: clients.state,
         zip: clients.zip,
+        bid: jobs.bidAmount
     })
     .from(jobs)
     .leftJoin(clients, eq(jobs.clientId, clients.id))

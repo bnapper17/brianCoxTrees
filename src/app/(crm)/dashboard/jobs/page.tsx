@@ -21,6 +21,7 @@ export default async function RequestsPage() {
                     id = {result.id.toString()}
                     createdAt={result.requestDate}
                     business={result.businessName}
+                    bid={result.bid}
                     />
                 ))}
             </div>

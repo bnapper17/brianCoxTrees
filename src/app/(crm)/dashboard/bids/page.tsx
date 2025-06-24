@@ -14,6 +14,7 @@ export default async function BidsPage() {
                     key={result.id} 
                     name={`${result.firstName} ${result.lastName}`} 
                     title={result.title}
+                    bid={result.bid}
                     email={result?.email}
                     phone={result?.phone}
                     city={result?.city}
