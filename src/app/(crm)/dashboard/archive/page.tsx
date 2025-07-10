@@ -51,7 +51,8 @@ export default async function Archivepage() {
                             email={job.email}
                             city={job.city}
                             address={job.address1}
-                            createdAt={job.requestDate}
+                            date={job.updatedDate}
+                            dateText= "archived"
                             business={job.businessName}
                             />
                             

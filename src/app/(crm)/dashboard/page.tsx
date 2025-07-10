@@ -46,7 +46,8 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
                     address={`${result.address1}, ${result.city}, ${result.state} ${result.zip}`}
                     city={result.city}
                     id = {result.id.toString()}
-                    createdAt={result.requestDate}
+                    date={result.updatedDate}
+                    dateText= "updated"
                     business={result.businessName}
                     />
                 ))}

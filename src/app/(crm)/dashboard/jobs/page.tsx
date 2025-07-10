@@ -19,7 +19,8 @@ export default async function RequestsPage() {
                     city={result?.city}
                     address={`${result.address1}, ${result.city}, ${result.state} ${result.zip}`}
                     id = {result.id.toString()}
-                    createdAt={result.requestDate}
+                    date={result.acceptedDate === null ? result.updatedDate : result.acceptedDate}
+                    dateText= "Bid Accepted"
                     business={result.businessName}
                     bid={result.bid}
                     />

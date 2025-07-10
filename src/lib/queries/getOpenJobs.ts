@@ -6,6 +6,9 @@ export async function getOpenJobs() {
     const results = await db.select({
         id: jobs.id,
         requestDate: jobs.createdAt,
+        updatedDate: jobs.updatedAt,
+        bidDate: jobs.bidDate,
+        acceptedDate: jobs.acceptedDate,
         title: jobs.title,
         firstName: clients.firstName,
         lastName: clients.lastName,
@@ -21,7 +24,7 @@ export async function getOpenJobs() {
     .from(jobs)
     .leftJoin(clients, eq(jobs.clientId, clients.id))
     .where(and(eq(jobs.bidAccepted, true), eq(jobs.completed, false), eq(jobs.archived, false)))
-    .orderBy(asc(jobs.createdAt))
+    .orderBy(asc(jobs.acceptedDate))
     
     return results
 }

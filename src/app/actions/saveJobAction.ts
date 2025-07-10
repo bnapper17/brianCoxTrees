@@ -35,13 +35,13 @@ export const saveJobAction = actionClient
         //update existing customer
         const result = await db.update(jobs).set({
             title: job.title,
-                clientId: job.clientId,
-                notes: job.notes,
-                bidAmount: job.bidAmount,
-                bidCompleted: job.bidAmount ? true : false,
-                bidAccepted: job.bidAccepted,
-                completed: job.completed,
-                archived: job.archived,
+            clientId: job.clientId,
+            notes: job.notes,
+            bidAmount: job.bidAmount,
+            bidCompleted: job.bidAmount ? true : false,
+            bidAccepted: job.bidAccepted,
+            completed: job.completed,
+            archived: job.archived,
         })
         .where(eq(jobs.id, job.id!))
         .returning({ updatedId: jobs.id})

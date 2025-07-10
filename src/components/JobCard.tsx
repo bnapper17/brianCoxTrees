@@ -13,10 +13,11 @@ type Props = {
     email?: string | null,
     address?: string | null,
     city?: string | null,
-    createdAt: Date
+    date: Date | null,
+    dateText?: string | null
 }
 
-export default function JobCard({ name, business, title, bid, phone, email, address, id, createdAt, city}: Props) {
+export default function JobCard({ name, business, title, bid, phone, email, address, id, date, city, dateText}: Props) {
     const formatter = new Intl.NumberFormat('default', {
         style: 'currency',
         currency: 'USD'
@@ -53,7 +54,7 @@ export default function JobCard({ name, business, title, bid, phone, email, addr
                 </div>
             </div>
             <div>
-                <p className="text-md text-end text-one">{formatDistanceToNow(new Date(createdAt), { addSuffix: true })}</p>
+                <p className="text-md text-end text-one">{`${dateText} ${date && formatDistanceToNow(new Date(date), { addSuffix: true })}`}</p>
             </div>
         </div>
         )

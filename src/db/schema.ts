@@ -31,6 +31,9 @@ export const jobs = pgTable("jobs", {
     updatedAt: timestamp("updated_at").notNull().defaultNow().$onUpdate(() => new Date()),
     completed: boolean("completed").notNull().default(false),
     archived: boolean("archived").notNull().default(false),
+    bidDate: timestamp("bid_date"),
+    acceptedDate: timestamp("accepted_date"),
+    completedDate: timestamp("completed_date")
 })
 
 //table relations

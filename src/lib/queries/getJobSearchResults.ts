@@ -6,6 +6,10 @@ export async function getJobSearchResults(searchText: string) {
     const results = await db.select({
         id: jobs.id,
         requestDate: jobs.createdAt,
+        updatedDate: jobs.updatedAt,
+        bidDate: jobs.bidDate,
+        acceptedDate: jobs.acceptedDate,
+        completedDate: jobs.completedDate,
         title: jobs.title,
         firstName: clients.firstName,
         lastName: clients.lastName,

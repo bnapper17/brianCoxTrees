@@ -17,7 +17,8 @@ export default async function RequestsPage() {
                     city={result?.city}
                     address={`${result.address1}, ${result.city}, ${result.state} ${result.zip}`}
                     id = {result.id.toString()}
-                    createdAt = {result.requestDate}
+                    date = {result.completedDate == null ? result.updatedDate : result.completedDate}
+                    dateText = "Completed"
                     business={result.businessName}
                     />
             ))}

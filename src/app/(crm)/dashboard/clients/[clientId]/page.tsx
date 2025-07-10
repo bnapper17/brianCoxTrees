@@ -54,7 +54,7 @@ export default async function ClientPage({ params }: { params: Promise<{ clientI
                                 <div className="flex justify-between">
                                     <p>{job.bidAmount ? job.bidAmount : "No Bid"}</p>
                                     {job.bidAccepted ? (<p>Bid Accepted</p>) : (<p>Bid Not Accepted</p>)}
-                                    <p className="text-md text-end text-one">{formatDistanceToNow(new Date(job.createdAt), { addSuffix: true })}</p>
+                                    <p className="text-md text-end text-one">{`updated ${formatDistanceToNow(new Date(job.updatedAt), { addSuffix: true })}`}</p>
                                 </div>
                             </div>
                         </Link>

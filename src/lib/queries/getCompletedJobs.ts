@@ -6,6 +6,10 @@ export async function getCompletedJobs() {
     const results = await db.select({
         id: jobs.id,
         requestDate: jobs.createdAt,
+        updatedDate: jobs.updatedAt,
+        bidDate: jobs.bidDate,
+        acceptedDate: jobs.acceptedDate,
+        completedDate: jobs.completedDate,
         title: jobs.title,
         firstName: clients.firstName,
         lastName: clients.lastName,
@@ -20,6 +24,6 @@ export async function getCompletedJobs() {
     .from(jobs)
     .leftJoin(clients, eq(jobs.clientId, clients.id))
     .where(eq(jobs.completed, true))
-    .orderBy(asc(jobs.createdAt))
+    .orderBy(asc(jobs.completedDate))
     return results
 }

@@ -51,7 +51,7 @@ export default function ClientCard({ name, business, phone, email, city, address
                 </div>
             </div>
             {updatedAt && <div>
-                <p className="text-md text-end text-one">{formatDistanceToNow(new Date(updatedAt), { addSuffix: true })}</p>
+                <p className="text-md text-end text-one">{`Requested ${formatDistanceToNow(new Date(updatedAt), { addSuffix: true })}`}</p>
             </div>}
         </div>
         )

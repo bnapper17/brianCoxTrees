@@ -6,6 +6,7 @@ export async function getArchivedJobs() {
     const archivedJobs = await db.select({
         id: jobs.id,
         requestDate: jobs.createdAt,
+        updatedDate: jobs.updatedAt,
         title: jobs.title,
         firstName: clients.firstName,
         lastName: clients.lastName,
