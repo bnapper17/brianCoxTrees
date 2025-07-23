@@ -19,7 +19,7 @@ export default async function RequestsPage() {
                         name={`${client.firstName} ${client.lastName}`}
                         email={client.email}
                         phone={client.phone}
-                        city={client.city}
+                        city={`${client.address1}, ${client.city}`}
                         address={`${client.address1} ${client.city} ${client.state} ${client.zip}`}
                         updatedAt={client.updatedAt}
                         business={client.businessName}
