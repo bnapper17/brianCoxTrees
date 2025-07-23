@@ -23,6 +23,7 @@ export async function getRequestSearchResults(searchText: string) {
         .where(and
             (
                 eq(clients.archived, false),
+                eq(clients.chipClient, false),
                 or(
                 notExists(
                   db.select()
