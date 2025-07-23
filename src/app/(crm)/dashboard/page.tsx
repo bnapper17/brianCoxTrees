@@ -13,7 +13,7 @@ import { getArchivedClients } from "@/lib/queries/getArchivedClients"
 import { getArchivedJobs } from "@/lib/queries/getArchivedJobs"
 import { getChipClientList } from "@/lib/queries/getChipClientList"
 
-export default async function DashboardPage({ searchParams }: { searchParams: Promise<{ [key: string]: string | undefined }> } ) {
+export default async function DashboardPage({ searchParams }: { searchParams: Promise<{ [key: string]: string | undefined }> }) {
 
     const { searchText } = await searchParams
 
@@ -37,7 +37,7 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
     return(
         <div className="flex justify-between xl:justify-around p-6 bg-dark-back">
             <div className="bg-dark-back min-h-lvh">
-                <SearchForm searchType="jobs" className="mb-4 lg:mb-10" />
+                <SearchForm searchType="/" placeholder="jobs" className="mb-4 lg:mb-10" />
                 {searchResults.map((result) => (
                     <JobCard 
                     key={result.id} 

@@ -8,7 +8,7 @@ type Props = {
     id: string,
     name: string,
     business?: string | null,
-    phone: string,
+    phone: string | null,
     email?: string | null,
     city?: string | null,
     address?: string | null,
