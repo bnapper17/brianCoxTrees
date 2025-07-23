@@ -11,6 +11,7 @@ import { getCompletedJobs } from "@/lib/queries/getCompletedJobs"
 import { getNewClients } from "@/lib/queries/getNewClients"
 import { getArchivedClients } from "@/lib/queries/getArchivedClients"
 import { getArchivedJobs } from "@/lib/queries/getArchivedJobs"
+import { getChipClientList } from "@/lib/queries/getChipClientList"
 
 export default async function DashboardPage({ searchParams }: { searchParams: Promise<{ [key: string]: string | undefined }> } ) {
 
@@ -23,10 +24,11 @@ export default async function DashboardPage({ searchParams }: { searchParams: Pr
     const newClients = await getNewClients()
     const archivedClients = await getArchivedClients()
     const archivedJobs = await getArchivedJobs()
+    const chipClients = await getChipClientList()
     
     if(!searchText) return(
         <div className="min-h-lvh bg-dark-back">            
-            <Dashboard newClients={newClients} completedBids={completedBids} openJobs={openJobs} completedJobs={completedJobs} clients={clients} archivedClients={archivedClients} archivedJobs={archivedJobs}/>
+            <Dashboard newClients={newClients} completedBids={completedBids} openJobs={openJobs} completedJobs={completedJobs} clients={clients} archivedClients={archivedClients} archivedJobs={archivedJobs} chipClients={chipClients}/>
         </div>
     )
 

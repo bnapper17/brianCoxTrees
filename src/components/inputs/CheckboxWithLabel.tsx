@@ -46,7 +46,7 @@ export function CheckboxWithLabel<S>({
                                 checked={field.value}
                                 onCheckedChange={field.onChange}
                                 disabled={disabled}
-                                className="h-6 w-6 border-gray-700"
+                                className="h-6 w-6 border-gray-700 cursor-pointer"
                                 />
                         </FormControl>
 

@@ -5,6 +5,7 @@ import { Form } from "@/components/ui/form";
 import { InputWithLabel } from "@/components/inputs/inputWithLabel"
 import { TextAreaWithLabel } from "@/components/inputs/TextareaWithLabel"
 import { PhoneInputWithLabel } from "@/components/inputs/PhoneInputWithLabel";
+import { CheckboxWithLabel } from "@/components/inputs/CheckboxWithLabel";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod"
 
@@ -38,6 +39,7 @@ export default function ClientForm({ client, newClient = true, jobs, className }
         zip: client?.zip ?? "",
         notes: client?.notes ?? "",
         archived: client?.archived ?? false,
+        chipClient: client?.chipClient ?? false
     }
 
     const form = useForm<insertClientSchemaType>({
@@ -114,6 +116,13 @@ export default function ClientForm({ client, newClient = true, jobs, className }
                     fieldTitle="Notes"
                     nameInSchema="notes"
                     />
+
+                <CheckboxWithLabel
+                fieldTitle="Chip Client"
+                nameInSchema="chipClient"
+                message="Chip Client"
+                className="justify-end"
+                />
             </div>
                 <div>
                     <Button 

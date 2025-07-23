@@ -30,6 +30,9 @@ export default function CrmHeader() {
                 <Link href="/dashboard/clients" title="Clients">
                     <h2 className=" hover:underline">Clients</h2>
                 </Link>
+                <Link href="/dashboard/chip" title="Chip">
+                    <h2 className=" hover:underline">Chip</h2>
+                </Link>
                 <Button
                     variant="ghost"
                     size="icon"

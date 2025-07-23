@@ -15,7 +15,7 @@ import {
     DialogTitle,
     DialogTrigger
 } from "@/components/ui/dialog"
-import { EllipsisVertical } from "lucide-react"
+import { Trash2 } from "lucide-react"
 
 
 
@@ -33,7 +33,7 @@ export default async function ClientPage({ params }: { params: Promise<{ clientI
             <div className="relative p-4 bg-back shadow-lg rounded-md w-sm lg:w-xl">
                 <Dialog>
                     <DialogTrigger asChild className="absolute right-2">
-                        <EllipsisVertical className="text-two cursor-pointer"/>
+                        <Trash2 className="text-two cursor-pointer"/>
                     </DialogTrigger>
                     <DialogContent>
                         <DialogHeader>
