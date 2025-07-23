@@ -7,7 +7,7 @@ export async function getChipClientList() {
     const clientList = await db.select()
         .from(clients)
         .where(and(eq(clients.archived, false), eq(clients.chipClient, true)))
-        .orderBy(desc(clients.updatedAt))
+        .orderBy(clients.updatedAt)
 
     return clientList
 }

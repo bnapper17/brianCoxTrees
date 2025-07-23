@@ -22,6 +22,7 @@ export default async function ChipPage() {
                     address={`${result.address1} ${result.city} ${result.state} ${result.zip}`}
                     id = {result.id.toString()}
                     business={result.businessName}
+                    updatedAt={result.updatedAt}
                     />
                     
                 ))}
