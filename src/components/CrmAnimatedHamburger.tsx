@@ -82,6 +82,11 @@ export default function AnimatedHamburger() {
                             </Link>
                         </DrawerClose>
                         <DrawerClose asChild>
+                            <Link href="/dashboard/chip" title="Chip">
+                                <h2 className=" hover:underline">Chip</h2>
+                            </Link>
+                        </DrawerClose>
+                        <DrawerClose asChild>
                             <Button
                                 variant="ghost"
                                 size="icon"
