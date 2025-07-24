@@ -1,6 +1,6 @@
 import { db } from "@/db";
 import { clients, jobs } from "@/db/schema";
-import { ilike, or, sql, eq, and, notExists, exists, desc } from "drizzle-orm";
+import { ilike, or, sql, eq, and, notExists, exists } from "drizzle-orm";
 
 export async function getRequestSearchResults(searchText: string) {
     const results = await db.select({
