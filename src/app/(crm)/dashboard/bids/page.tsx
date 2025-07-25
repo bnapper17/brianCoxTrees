@@ -21,7 +21,7 @@ export default async function BidsPage() {
                     address={`${result.address1}, ${result.city}, ${result.state} ${result.zip}`}
                     id = {result.id.toString()}
                     date={result.bidDate === null ? result.updatedDate : result.bidDate}
-                    dateText= "Bid Entered"
+                    dateText= {result.bidDate === null ? "Updated" : "Bid Entered"}
                     business={result.businessName}
                     />
                 ))}

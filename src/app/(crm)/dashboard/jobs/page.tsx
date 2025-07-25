@@ -20,7 +20,7 @@ export default async function RequestsPage() {
                     address={`${result.address1}, ${result.city}, ${result.state} ${result.zip}`}
                     id = {result.id.toString()}
                     date={result.acceptedDate === null ? result.updatedDate : result.acceptedDate}
-                    dateText= "Bid Accepted"
+                    dateText= {result.acceptedDate === null ? "Updated" : "Bid Accepted"}
                     business={result.businessName}
                     bid={result.bid}
                     />

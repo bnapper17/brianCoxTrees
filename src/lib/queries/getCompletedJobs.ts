@@ -1,6 +1,6 @@
 import { db } from "@/db";
 import { clients, jobs } from "@/db/schema"
-import { asc, eq } from "drizzle-orm";
+import { desc, eq } from "drizzle-orm";
 
 export async function getCompletedJobs() {
     const results = await db.select({
@@ -24,6 +24,6 @@ export async function getCompletedJobs() {
     .from(jobs)
     .leftJoin(clients, eq(jobs.clientId, clients.id))
     .where(eq(jobs.completed, true))
-    .orderBy(asc(jobs.completedDate))
+    .orderBy(desc(jobs.completedDate), desc(jobs.updatedAt))
     return results
 }

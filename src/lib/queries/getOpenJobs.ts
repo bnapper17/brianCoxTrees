@@ -24,7 +24,7 @@ export async function getOpenJobs() {
     .from(jobs)
     .leftJoin(clients, eq(jobs.clientId, clients.id))
     .where(and(eq(jobs.bidAccepted, true), eq(jobs.completed, false), eq(jobs.archived, false)))
-    .orderBy(asc(jobs.acceptedDate))
+    .orderBy(asc(jobs.acceptedDate), asc(jobs.updatedAt))
     
     return results
 }
