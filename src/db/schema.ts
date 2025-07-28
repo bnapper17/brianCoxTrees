@@ -16,6 +16,7 @@ export const clients = pgTable("clients", {
     notes: text("notes"),
     archived: boolean("archived").notNull().default(false),
     chipClient: boolean("chip_client").notNull().default(false),
+    woodClient: boolean("wood_client").notNull().default(false),
     createdAt: timestamp("created_at").notNull().defaultNow(),
     updatedAt: timestamp("updated_at").notNull().defaultNow().$onUpdate(() => new Date())
 })

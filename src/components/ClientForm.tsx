@@ -39,7 +39,8 @@ export default function ClientForm({ client, newClient = true, jobs, className }
         zip: client?.zip ?? "",
         notes: client?.notes ?? "",
         archived: client?.archived ?? false,
-        chipClient: client?.chipClient ?? false
+        chipClient: client?.chipClient ?? false,
+        woodClient: client?.woodClient ?? false
     }
 
     const form = useForm<insertClientSchemaType>({
@@ -116,13 +117,19 @@ export default function ClientForm({ client, newClient = true, jobs, className }
                     fieldTitle="Notes"
                     nameInSchema="notes"
                     />
+                <div className="flex justify-around">
+                    <CheckboxWithLabel
+                    fieldTitle="Wood Client"
+                    nameInSchema="woodClient"
+                    message="Wood Drop"
+                    />
 
-                <CheckboxWithLabel
-                fieldTitle="Chip Client"
-                nameInSchema="chipClient"
-                message="Chip Client"
-                className="justify-end"
-                />
+                    <CheckboxWithLabel
+                    fieldTitle="Chip Client"
+                    nameInSchema="chipClient"
+                    message="Chip Drop"
+                    />
+                </div>
             </div>
                 <div>
                     <Button 

@@ -29,7 +29,8 @@ export const saveClientAction = actionClient
                 zip: client.zip,
                 notes: client.notes,
                 archived: false,
-                chipClient: client.chipClient
+                chipClient: client.chipClient,
+                woodClient: client.woodClient
             }).returning({ insertedId: clients.id })
 
             return{ message: `${client.firstName} ${client.lastName} added successfully! ID: ${result[0].insertedId}`}
@@ -48,7 +49,8 @@ export const saveClientAction = actionClient
             zip: client.zip,
             notes: client.notes,
             archived: client.archived,
-            chipClient: client.chipClient
+            chipClient: client.chipClient,
+            woodClient: client.woodClient
         })
         .where(eq(clients.id, client.id!))
         .returning({ updatedId: clients.id})
