@@ -1,0 +1,88 @@
+"use client"
+
+import SignatureCanvas from "react-signature-canvas"
+import { useRef, useState } from "react"
+import {
+    Drawer,
+    DrawerContent,
+    DrawerTitle,
+    DrawerTrigger,
+    DrawerHeader,
+    DrawerDescription
+  } from "@/components/ui/drawer"
+
+import { PenSquare } from "lucide-react"
+import { Button } from "@/components/ui/button"
+
+export default function SignatureComponent() {
+  
+  const sigCanvas = useRef<SignatureCanvas>(null)
+  const [trimmedDataUrl, setTrimmedDataUrl] = useState('')
+  const [openDrawer, setOpenDrawer] = useState(false)
+  
+  const handleDrawer = () => {
+    setOpenDrawer(!openDrawer)
+  }
+
+  const handleClear = () => {
+    if(!sigCanvas.current) {
+      return
+    }
+    sigCanvas.current.clear()
+  }
+
+  const handleSave = () => {
+    if(!sigCanvas.current) {
+      return
+    }
+    setTrimmedDataUrl(sigCanvas.current.getTrimmedCanvas().toDataURL('image/png'))
+    setOpenDrawer(!openDrawer)
+    sigCanvas.current.clear()
+  }
+
+  return(
+    <div>
+      <div className="flex justify-between mt-6 lg:mt-10 lg:mx-6 px-6">
+
+        <div className="min-w-1/2">
+          <div className="flex gap-2 max-w-3/4">
+            <p className="lg:text-2xl mt- text-nowrap">Accpted By:</p>
+            {trimmedDataUrl ? <img alt='signature' src={trimmedDataUrl}/> : null}
+          </div>
+          <div className="flex gap-2">
+            <p className="lg:text-2xl mt-2">Accepted Date:</p>
+            {trimmedDataUrl ? <p className="lg:text-2xl mt-2">{new Date().toLocaleString('en-US', {year: 'numeric', month:'long', day:'numeric'}).toString()}</p> : null}
+          </div>
+        </div>
+
+        <div>
+          <Drawer open={openDrawer} dismissible={false}>
+            <DrawerTrigger asChild>
+              <Button asChild className="bg-one drop-shadow-lg drop-shadow-gray-800 w-15 h-15" onClick={handleDrawer}>
+                <PenSquare size={32}/>
+              </Button>
+            </DrawerTrigger>
+            <DrawerContent>
+              <DrawerHeader>
+                <DrawerTitle>Signature</DrawerTitle>
+                <DrawerDescription>Sign here to indicate that you accept the terms of the esitmate.</DrawerDescription>
+              </DrawerHeader>
+              <div>
+                <div className="border-2 w-lvw h-40">
+                  <SignatureCanvas ref={sigCanvas}
+                  canvasProps={{className: "w-full h-full"}}
+                  />
+                </div>
+                <div className="flex justify-center gap-4 my-4">
+                  <Button onClick={handleClear} className="bg-two">Clear</Button>
+                  <Button onClick={handleSave} className="bg-one">Submit</Button>
+                  <Button onClick={handleDrawer}>Exit</Button>
+                </div>
+              </div>
+            </DrawerContent>
+          </Drawer>
+        </div>
+      </div>
+    </div>
+  )
+}

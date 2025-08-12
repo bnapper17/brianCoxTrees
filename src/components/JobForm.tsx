@@ -4,6 +4,7 @@ import { InputWithLabel } from "@/components/inputs/inputWithLabel"
 import { TextAreaWithLabel } from "@/components/inputs/TextareaWithLabel"
 import { CheckboxWithLabel } from "@/components/inputs/CheckboxWithLabel"
 import { insertJobsSchema, type insertJobsSchemaType, type selectJobsSchemaType } from "@/zod-schemas/job"
+import Link from "next/link"
 
 import { Form } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
@@ -110,12 +111,29 @@ export default function JobForm({ client, job }: Props) {
                     </div>
                 </div>
                 <div>
+                {job ?
+                <div className="flex justify-around">
+                    <Button 
+                        type="submit" 
+                        variant="ghost"
+                        className="w-1/3 text-two border border-one shadow-lg hover:bg-one hover:text-white active:shadow-none active:text-xs mt-4 cursor-pointer"
+                    >Update
+                    </Button>
+                    <Link href={`/dashboard/jobs/${job.id}/estimate`} className="w-1/3">
+                        <Button 
+                            variant="ghost"
+                            className="w-full text-two border border-one shadow-lg hover:bg-one hover:text-white active:shadow-none active:text-xs mt-4 cursor-pointer"
+                            >Estimate
+                        </Button> 
+                    </Link> 
+                </div> :
                 <Button 
                     type="submit" 
                     variant="ghost"
                     className="w-full text-two border border-one shadow-lg hover:bg-one hover:text-white active:shadow-none active:text-xs mt-4 cursor-pointer"
                 >Submit
-                </Button>
+                </Button> 
+                }
                 </div>
             </form>
         </Form>
