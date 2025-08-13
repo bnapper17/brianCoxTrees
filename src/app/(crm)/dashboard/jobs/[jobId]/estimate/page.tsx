@@ -79,7 +79,10 @@ export default async function JobPage({ params }: {params: Promise<{jobId: strin
             </div>
             
             {/* signature */}
-            <SignatureComponent />
+            <SignatureComponent 
+              id={job.id}
+              signature={job.signature ? job.signature : ''}
+            />
           </div>
         </div>
     )

@@ -14,10 +14,15 @@ import {
 import { PenSquare } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-export default function SignatureComponent() {
+import { useAction } from "next-safe-action/hooks"
+import { saveSignatureAction } from "@/app/actions/saveSignatureAction"
+import { toast } from "sonner"
+import { updateSignatureSchemaType } from "@/zod-schemas/signature"
+
+export default function SignatureComponent(job: updateSignatureSchemaType) {
   
   const sigCanvas = useRef<SignatureCanvas>(null)
-  const [dataUrl, setDataUrl] = useState('')
+  const [dataUrl, setDataUrl] = useState(job.signature)
   const [openDrawer, setOpenDrawer] = useState(false)
   
   const handleDrawer = () => {
@@ -31,11 +36,30 @@ export default function SignatureComponent() {
     sigCanvas.current.clear()
   }
 
+  const {
+    execute: saveSignature
+  } = useAction(saveSignatureAction, {
+    onSuccess({data}) {
+      console.log(data)
+      toast(data?.message)
+    },
+    onError({ error }) {
+      console.log(error)
+      toast.error("Failed to accept signature")
+    }
+  })
+
   const handleSave = () => {
     if(!sigCanvas.current) {
       return
     }
-    setDataUrl(sigCanvas.current.getCanvas().toDataURL('image/png'))
+    if(!job.id) {
+      toast.error("Job ID is missing")
+      return
+    }
+    const dataUrl = sigCanvas.current.getCanvas().toDataURL('image/png')
+    setDataUrl(dataUrl)
+    saveSignature({ id: job.id, signature: dataUrl})
     setOpenDrawer(!openDrawer)
     sigCanvas.current.clear()
   }

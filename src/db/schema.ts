@@ -35,7 +35,8 @@ export const jobs = pgTable("jobs", {
     archived: boolean("archived").notNull().default(false),
     bidDate: timestamp("bid_date"),
     acceptedDate: timestamp("accepted_date"),
-    completedDate: timestamp("completed_date")
+    completedDate: timestamp("completed_date"),
+    signature: text('signature')
 })
 
 //table relations
