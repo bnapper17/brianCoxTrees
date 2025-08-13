@@ -17,7 +17,7 @@ import { Button } from "@/components/ui/button"
 export default function SignatureComponent() {
   
   const sigCanvas = useRef<SignatureCanvas>(null)
-  const [trimmedDataUrl, setTrimmedDataUrl] = useState('')
+  const [dataUrl, setDataUrl] = useState('')
   const [openDrawer, setOpenDrawer] = useState(false)
   
   const handleDrawer = () => {
@@ -35,7 +35,7 @@ export default function SignatureComponent() {
     if(!sigCanvas.current) {
       return
     }
-    setTrimmedDataUrl(sigCanvas.current.getTrimmedCanvas().toDataURL('image/png'))
+    setDataUrl(sigCanvas.current.getCanvas().toDataURL('image/png'))
     setOpenDrawer(!openDrawer)
     sigCanvas.current.clear()
   }
@@ -47,11 +47,11 @@ export default function SignatureComponent() {
         <div className="min-w-1/2">
           <div className="flex gap-2 max-w-3/4">
             <p className="lg:text-2xl mt- text-nowrap">Accpted By:</p>
-            {trimmedDataUrl ? <img alt='signature' src={trimmedDataUrl}/> : null}
+            {dataUrl ? <img alt='signature' src={dataUrl}/> : null}
           </div>
           <div className="flex gap-2">
             <p className="lg:text-2xl mt-2">Accepted Date:</p>
-            {trimmedDataUrl ? <p className="lg:text-2xl mt-2">{new Date().toLocaleString('en-US', {year: 'numeric', month:'long', day:'numeric'}).toString()}</p> : null}
+            {dataUrl ? <p className="lg:text-2xl mt-2">{new Date().toLocaleString('en-US', {year: 'numeric', month:'long', day:'numeric'}).toString()}</p> : null}
           </div>
         </div>
 
