@@ -1,10 +1,10 @@
 import { getJob } from "@/lib/queries/getJob"
 import { getClient } from "@/lib/queries/getClient"
-import company_logo from "@/../public/images/logo.png"
-import Image from "next/image";
+// import company_logo from "@/../public/images/logo.png"
+// import Image from "next/image";
 import SignatureComponent from "@/components/SignatureComponent";
-
-
+import { Download } from "lucide-react";
+import Link from "next/link";
 
 export default async function JobPage({ params }: {params: Promise<{jobId: string}>}) {
 
@@ -21,7 +21,7 @@ export default async function JobPage({ params }: {params: Promise<{jobId: strin
         <div className="min-h-lvh flex flex-col items-center bg-dark-back">
           <div className="bg-back w-full max-w-6xl min-h-lvh">
             {/* header section */}
-            <div className="flex items-center lg:justify-between border-b-2 border-b-one">
+            {/* <div className="flex items-center lg:justify-between border-b-2 border-b-one">
               <div className="w-24 lg:w-48">
                 <Image
                     src={company_logo}
@@ -36,10 +36,10 @@ export default async function JobPage({ params }: {params: Promise<{jobId: strin
                   <p>briancoxtrees@gmail.com</p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* client info section */}
-            <div className="text-xl lg:text-3xl my-6 lg:mx-8 border-b-2 border-b-two pb-4">
+            <div className="flex justify-between text-xl lg:text-3xl my-6 lg:mx-8 border-b-2 border-b-two pb-4">
               <div className="px-6 flex flex-col lg:gap-2">
                 <h3 className="text-two text-3xl lg:text-4xl font-bold">Bill To:</h3>
                 <p className="font-semibold">{`${client.firstName} ${client.lastName}`}</p>
@@ -51,6 +51,9 @@ export default async function JobPage({ params }: {params: Promise<{jobId: strin
                 </div>
                 <p>{client.phone}</p>
               </div>
+              <Link href={`/dashboard/jobs/${jobId}/estimate/pdf`}>
+                <Download/>
+              </Link>
             </div>
 
             {/* job info section */}

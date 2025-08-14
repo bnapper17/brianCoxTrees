@@ -70,11 +70,11 @@ export default function SignatureComponent(job: updateSignatureSchemaType) {
 
         <div className="min-w-1/2">
           <div className="flex gap-2 max-w-3/4">
-            <p className="lg:text-2xl mt- text-nowrap">Accpted By:</p>
+            <p className="lg:text-2xl mt- text-nowrap">Signed:</p>
             {dataUrl ? <img alt='signature' src={dataUrl}/> : null}
           </div>
           <div className="flex gap-2">
-            <p className="lg:text-2xl mt-2">Accepted Date:</p>
+            <p className="lg:text-2xl mt-2">Date:</p>
             {dataUrl ? <p className="lg:text-2xl mt-2">{new Date().toLocaleString('en-US', {year: 'numeric', month:'long', day:'numeric'}).toString()}</p> : null}
           </div>
         </div>
