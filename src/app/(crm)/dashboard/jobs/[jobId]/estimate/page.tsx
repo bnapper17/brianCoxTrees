@@ -70,8 +70,8 @@ export default async function JobPage({ params }: {params: Promise<{jobId: strin
                   </div>
                   <div className="flex gap-4">
                     <p className="text-two font-semibold">Estimate Date:</p>
-                    <p>{job.bidDate ? job.bidDate.toLocaleString('en-US', {year: 'numeric', month:'long', day:'numeric'}).toString() 
-                    : new Date().toLocaleString('en-US', {year: 'numeric', month:'long', day:'numeric'}).toString()}</p>
+                    <p>{job.bidDate ? job.bidDate.toLocaleString('en-US', {year: 'numeric', month:'2-digit', day:'2-digit'}).toString() 
+                    : new Date().toLocaleString('en-US', {year: 'numeric', month:'2-digit', day:'2-digit'}).toString()}</p>
                   </div>
                 </div>
                 <div className="flex gap-4 lg:w-1/2">
