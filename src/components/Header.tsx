@@ -20,13 +20,13 @@ export default function Header() {
 
             {/* navigation links on large screens */}
             <div className="hidden md:flex justify-evenly gap-5 items-end text-xl md:text-2xl text-two font-semibold md:mr-8">
-                <Link href="/" title="Services">
+                <Link href="/" title="Home">
                     <h2 className=" hover:underline">Home</h2>
                 </Link>
                 <Link href="/services" title="Services">
                     <h2 className=" hover:underline">Services</h2>
                 </Link>
-                <Link href="/estimate" title="Services">
+                <Link href="https://app.singleops.com/accounts/BCTrees/portal" title="Free Quote">
                     <h2 className=" hover:underline">Free Quote</h2>
                 </Link>
             </div>
