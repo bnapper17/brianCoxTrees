@@ -1,1 +1,0 @@
-ALTER TABLE "jobs" ADD COLUMN "archived" boolean DEFAULT false NOT NULL;

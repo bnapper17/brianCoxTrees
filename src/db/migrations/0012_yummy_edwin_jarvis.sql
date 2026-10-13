@@ -1,1 +1,0 @@
-ALTER TABLE "jobs" ALTER COLUMN "bid_date" DROP DEFAULT;

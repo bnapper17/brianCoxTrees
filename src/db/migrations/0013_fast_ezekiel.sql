@@ -1,1 +1,0 @@
-ALTER TABLE "clients" ADD COLUMN "chip_client" boolean DEFAULT false NOT NULL;
