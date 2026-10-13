@@ -1,6 +1,7 @@
 import { permanentRedirect } from "next/navigation"
+import { site } from "@/lib/site"
 
 // Quote requests are handled by SingleOps.
 export default function EstimatePage() {
-    permanentRedirect('https://app.singleops.com/accounts/BCTrees/portal')
+    permanentRedirect(site.quoteUrl)
 }

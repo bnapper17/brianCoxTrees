@@ -46,10 +46,6 @@
   --color-dark-back: #AAAAAA;
 }
 
-@utility splash-image{
-  @apply bg-[url(/images/splash_cropped.jpg)] bg-cover bg-center bg-no-repeat;
-}
-
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);

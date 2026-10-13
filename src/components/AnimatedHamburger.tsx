@@ -11,7 +11,8 @@ import {
   } from "@/components/ui/drawer"
 
   import Link from "next/link"
-  import { PhoneIcon } from "lucide-react"
+  import { MailIcon, PhoneIcon } from "lucide-react"
+  import { site } from "@/lib/site"
   
 
 export default function AnimatedHamburger() {
@@ -44,23 +45,28 @@ export default function AnimatedHamburger() {
                 </DrawerHeader>
                     <div className="flex flex-col justify-evenly gap-10 mt-20 ml-10 text-3xl text-two font-semibold md:mr-8">
                         <DrawerClose asChild>
-                            <Link href="/" title="Services">
-                                <h2 className=" hover:underline">Home</h2>
+                            <Link href="/" title="Home">
+                                <span className="hover:underline">Home</span>
                             </Link>
                         </DrawerClose>
                         <DrawerClose asChild>
                             <Link href="/services" title="Services">
-                                <h2 className=" hover:underline">Services</h2>
+                                <span className="hover:underline">Services</span>
                             </Link>
                         </DrawerClose>
                         <DrawerClose asChild>
-                            <Link href="/estimate" title="Estimate">
-                                <h2 className=" hover:underline">Free Quote</h2>
+                            <Link href={site.quoteUrl} title="Free Quote">
+                                <span className="hover:underline">Free Quote</span>
                             </Link>
                         </DrawerClose>
-                        <DrawerClose asChild>
-                            <a href="tel:812-5721047"><PhoneIcon size={34}/></a>
-                        </DrawerClose>
+                        <div className="flex items-center gap-10">
+                            <DrawerClose asChild>
+                                <a href={site.phoneHref} aria-label="Call B.C. Trees"><PhoneIcon size={34}/></a>
+                            </DrawerClose>
+                            <DrawerClose asChild>
+                                <a href={`mailto:${site.email}`} aria-label="Email B.C. Trees"><MailIcon size={34}/></a>
+                            </DrawerClose>
+                        </div>
                     </div>
             </DrawerContent>
         </Drawer>

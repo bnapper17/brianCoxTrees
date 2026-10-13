@@ -1,163 +1,99 @@
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-  } from "@/components/ui/carousel"
-
+import type { Metadata } from "next"
 import Image from "next/image"
-  
+import Link from "next/link"
+import { ArrowRightIcon, CheckIcon } from "lucide-react"
+import Breadcrumbs from "@/components/Breadcrumbs"
+import CtaBanner from "@/components/CtaBanner"
+import QuoteButtons from "@/components/QuoteButtons"
+import TrustList from "@/components/TrustList"
+import { services } from "@/lib/services"
+import { site } from "@/lib/site"
 
+const title = "Tree Services in Southern Indiana"
+const description =
+    "Storm damage cleanup, tree trimming, tree removal and stump grinding across Southern Indiana from B.C. Trees in English, IN. Fully insured with free estimates."
+
+export const metadata: Metadata = {
+    title,
+    description,
+    alternates: { canonical: "/services" },
+    openGraph: {
+        type: "website",
+        siteName: "B.C. Trees",
+        locale: "en_US",
+        url: "/services",
+        title: `${title} | B.C. Trees`,
+        description,
+        images: [{ url: "/images/storm_damage.jpeg", alt: "Storm damage cleanup by B.C. Trees" }],
+    },
+}
 
 export default function Services() {
-    return(
-        <div className="bg-dark-back">
-            {/* services on mobile */}
-            <Carousel className="relative md:hidden" opts={{loop: true}}>
-                <CarouselContent>
-                    <CarouselItem className="relative h-150">
-                        <Image
-                            src='/images/storm_damage.jpeg'
-                            fill
-                            sizes="100vw"
-                            style={{
-                                objectFit: "cover",
-                            }}
-                            alt="storm damage"
-                        />
-                        <p className="absolute bg-back/70 rounded-sm p-4 w-80 text-4xl text-white text-center top-2/3 right-1/2 translate-x-1/2">
-                            Clean up any storm damage!
-                        </p>
-                        <p className="absolute bg-back/50 rounded-sm p-2 text-white bottom-1 right-1/2 translate-x-1/2">
-                        {'<'}--- Swipe ---{'>'}
-                        </p>
-                    </CarouselItem>
-                    <CarouselItem className="relative h-150">
-                        <Image
-                            src='/images/tree_trim.jpg'
-                            fill
-                            sizes="100vw"
-                            style={{
-                                objectFit: "cover",
-                            }}
-                            alt="untrimmed tree"
-                        />
-                        <p className="absolute bg-back/70 rounded-sm p-4 w-80 text-4xl text-white text-center top-2/3 right-1/2 translate-x-1/2">
-                            All your tree trimming needs!
-                        </p>
-                        <p className="absolute bg-back/50 rounded-sm p-2 text-white bottom-1 right-1/2 translate-x-1/2">
-                        {'<'}--- Swipe ---{'>'}
-                        </p>
-                    </CarouselItem>
-                    <CarouselItem className="relative h-150">
-                        <Image
-                            src='/images/stump_grinder.jpg'
-                            fill
-                            sizes="100vw"
-                            style={{
-                                objectFit: "cover",
-                            }}
-                            alt="stump grinder"
-                        />
-                        <p className="absolute bg-back/70 rounded-sm p-4 w-80 text-4xl text-white text-center top-2/3 right-1/2 translate-x-1/2">
-                            Stump Grinding Available!
-                        </p>
-                        <p className="absolute bg-back/50 rounded-sm p-2 text-white bottom-1 right-1/2 translate-x-1/2">
-                        {'<'}--- Swipe ---{'>'}
-                        </p>
-                    </CarouselItem>
-                    <CarouselItem className="relative h-150">
-                        <Image
-                            src='/images/ory_climbing.jpg'
-                            fill
-                            sizes="100vw"
-                            style={{
-                                objectFit: "cover",
-                            }}
-                            alt="tree work in backyard"
-                        />
-                        <p className="absolute bg-back/70 rounded-sm p-4 w-80 text-2xl text-white text-center top-2/3 right-1/2 translate-x-1/2">
-                            We will get the job done, Whatever It Takes!<br/>
-                            Get your free quote today!
-                        </p>
-                        <p className="absolute bg-back/50 rounded-sm p-2 text-white bottom-1 right-1/2 translate-x-1/2">
-                        {'<'}--- Swipe ---{'>'}
-                        </p>
-                    </CarouselItem>
-                </CarouselContent>
-            </Carousel>
-            
-            {/* Services on large screens */}
-            <div className="hidden md:block">
-                <div className="flex flex-row gap-8 justify-evenly items-center px-20 py-10">
-                    <div className="w-80">
+    return (
+        <>
+            {/* Page header */}
+            <section className="bg-one text-white">
+                <div className="mx-auto max-w-6xl space-y-5 px-6 py-12 md:py-16">
+                    <Breadcrumbs crumbs={[{ label: "Home", href: "/" }, { label: "Services" }]} />
+                    <h1 className="max-w-3xl text-4xl md:text-5xl font-bold leading-tight">{title}</h1>
+                    <p className="max-w-2xl text-lg md:text-xl text-white/90">
+                        From emergency storm cleanup to a single stump, B.C. Trees handles it all with a fully
+                        insured crew based in {site.city}, {site.state}. Every estimate is free.
+                    </p>
+                    <QuoteButtons className="pt-2" />
+                </div>
+            </section>
 
-                        <Image
-                            src="/images/storm_damage.jpeg"
-                            height={605}
-                            width={454}
-                            alt="strom damage"
-                            style={{
-                                borderRadius:'5%',
-                                boxShadow: '5px 5px 5px gray'
-                            }}
-                        />
-                    </div>
-                    <p className="text-4xl text-white w-200 bg-gray-500/50 text-center py-10 xl:py-20 px-4 rounded-md shadow-md shadow-gray-800">
-                        Storm damage is our specialty. We are fully insured and equipped to help with any of your strom damage needs!
-                    </p>
+            {/* One row per service, alternating sides on desktop */}
+            <section className="bg-dark-back">
+                <div className="mx-auto max-w-6xl space-y-8 px-6 py-14 md:space-y-12 md:py-20">
+                    {services.map((service, i) => (
+                        <article
+                            key={service.slug}
+                            className="grid overflow-hidden rounded-lg bg-back shadow-md shadow-gray-700/30 md:grid-cols-5"
+                        >
+                            <div className={`relative aspect-4/3 md:col-span-2 md:aspect-auto md:min-h-80 ${i % 2 ? "md:order-last" : ""}`}>
+                                <Image
+                                    src={service.image}
+                                    alt={service.alt}
+                                    fill
+                                    placeholder="blur"
+                                    sizes="(max-width: 767px) 100vw, 440px"
+                                    className="object-cover"
+                                />
+                            </div>
+                            <div className="flex flex-col gap-4 p-6 md:col-span-3 md:p-10">
+                                <h2 className="text-2xl md:text-3xl font-bold text-two">{service.title}</h2>
+                                <p className="text-lg leading-relaxed text-foreground/85">{service.intro}</p>
+                                <ul className="grid gap-2 sm:grid-cols-2">
+                                    {service.included.slice(0, 4).map((item) => (
+                                        <li key={item} className="flex items-start gap-2 text-foreground/85">
+                                            <CheckIcon size={18} className="mt-0.5 shrink-0 text-one" aria-hidden="true" />
+                                            {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                                <Link
+                                    href={`/services/${service.slug}`}
+                                    className="mt-auto inline-flex w-fit items-center gap-2 pt-2 font-semibold text-two hover:underline"
+                                >
+                                    More about {service.title.toLowerCase()} <ArrowRightIcon size={18} aria-hidden="true" />
+                                </Link>
+                            </div>
+                        </article>
+                    ))}
                 </div>
-                <div className="flex flex-row gap-8 justify-evenly items-center px-20 py-10">
-                    <p className="text-4xl text-white w-200 bg-gray-500/50 text-center py-10 xl:py-20 px-4 rounded-md shadow-md shadow-gray-800">
-                        Trees just need a bit of trimming? We take care of that as well!
-                    </p>
-                    <Image
-                        src="/images/tree_trim.jpg"
-                        height={528}
-                        width={457}
-                        alt="strom damage"
-                        style={{
-                            borderRadius:'5%',
-                            boxShadow: '5px 5px 5px gray'
-                        }}
-                        />
-                </div>
-                <div className="flex flex-row gap-8 justify-evenly items-center px-20 py-10">
-                    <div className="w-100">
+            </section>
 
-                        <Image
-                            src="/images/stump_grinder.jpg"
-                            height={558}
-                            width={605}
-                            alt="stump grinder"
-                            style={{
-                                borderRadius:'5%',
-                                boxShadow: '5px 5px 5px gray'
-                            }}
-                        />
-                    </div>
-                    <p className="text-4xl text-white w-200 bg-gray-500/50 text-center py-10 xl:py-20 px-4 rounded-md shadow-md shadow-gray-800">
-                        Tired of seeing that stump in your yard? We will make it look like it was never there!
-                    </p>
+            {/* Why us */}
+            <section className="bg-back">
+                <div className="mx-auto max-w-6xl space-y-8 px-6 py-14 md:py-20">
+                    <h2 className="text-3xl md:text-4xl font-bold text-two">Why B.C. Trees</h2>
+                    <TrustList className="sm:grid-cols-2" />
                 </div>
-                <div className="flex flex-row gap-8 justify-evenly items-center px-20 py-10">
-                    <p className="text-4xl text-white w-200 bg-gray-500/50 text-center py-10 xl:py-20 px-4 rounded-md shadow-md shadow-gray-800">
-                        We will get the job done, Whatever It Takes!<br/>
-                        Get your free quote today!
-                    </p>
-                    <div className="w-100">
-                        <Image
-                            src="/images/ory_climbing.jpg"
-                            height={605}
-                            width={454}
-                            alt="backyard tree work"
-                            style={{
-                                borderRadius:'5%',
-                                boxShadow: '5px 5px 5px gray'
-                            }}
-                        />
-                    </div>
-                </div>
-            </div>
-        </div>
+            </section>
+
+            <CtaBanner />
+        </>
     )
 }
