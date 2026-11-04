@@ -44,7 +44,7 @@ export default function Footer() {
                 </address>
             </div>
             <p className="border-t border-one/30 px-4 py-3 text-center text-xs md:text-sm">
-                &copy; {new Date().getFullYear()} Ntouch Solutions. All rights reserved.
+                &copy; {new Date().getFullYear()} {site.name}. All rights reserved. Website by Ntouch Solutions.
             </p>
         </footer>
     )
