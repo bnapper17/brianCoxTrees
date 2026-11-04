@@ -15,7 +15,13 @@ export default function QuoteButtons({ className }: { className?: string }) {
             <Button asChild variant="outline" className={cn(base, "bg-transparent text-white border-white/80 hover:bg-white hover:text-two")}>
                 <a href={site.phoneHref}>
                     <PhoneIcon aria-hidden="true" />
-                    Call {site.phone}
+                    Office {site.phone}
+                </a>
+            </Button>
+            <Button asChild variant="outline" className={cn(base, "bg-transparent text-white border-white/80 hover:bg-white hover:text-two")}>
+                <a href={site.cellHref}>
+                    <PhoneIcon aria-hidden="true" />
+                    Cell {site.cell}
                 </a>
             </Button>
         </div>

@@ -27,7 +27,11 @@ export default function Footer() {
                     </p>
                     <a href={site.phoneHref} className="flex items-center gap-3 py-1 hover:underline">
                         <PhoneIcon size={20} className="shrink-0" aria-hidden="true" />
-                        {site.phone}
+                        Office: {site.phone}
+                    </a>
+                    <a href={site.cellHref} className="flex items-center gap-3 py-1 hover:underline">
+                        <PhoneIcon size={20} className="shrink-0" aria-hidden="true" />
+                        Cell: {site.cell}
                     </a>
                     <a href={`mailto:${site.email}`} className="flex items-center gap-3 py-1 hover:underline break-all">
                         <MailIcon size={20} className="shrink-0" aria-hidden="true" />

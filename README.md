@@ -120,4 +120,4 @@ src/
 
 ## Deployment
 
-Any Next.js host works. On [Vercel](https://vercel.com), import the repo and use the default settings (`npm run build`), then point `briancoxtrees.com` at it. If the domain ever changes, update `url` in [site.ts](src/lib/site.ts).
+The live site (briancoxtrees.com) is hosted on [Vercel](https://vercel.com) and deploys from the `main` branch: every push to `main` goes live. Work on `preview` (Vercel builds a preview deployment for it), and when the client approves, merge `preview` into `main` and push. If the domain ever changes, update `url` in [site.ts](src/lib/site.ts).

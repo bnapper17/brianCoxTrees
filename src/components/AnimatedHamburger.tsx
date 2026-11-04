@@ -11,7 +11,7 @@ import {
   } from "@/components/ui/drawer"
 
   import Link from "next/link"
-  import { MailIcon, PhoneIcon } from "lucide-react"
+  import { MailIcon, PhoneIcon, SmartphoneIcon } from "lucide-react"
   import { site } from "@/lib/site"
   
 
@@ -61,7 +61,10 @@ export default function AnimatedHamburger() {
                         </DrawerClose>
                         <div className="flex items-center gap-10">
                             <DrawerClose asChild>
-                                <a href={site.phoneHref} aria-label="Call B.C. Trees"><PhoneIcon size={34}/></a>
+                                <a href={site.phoneHref} aria-label="Call B.C. Trees office"><PhoneIcon size={34}/></a>
+                            </DrawerClose>
+                            <DrawerClose asChild>
+                                <a href={site.cellHref} aria-label="Call B.C. Trees cell"><SmartphoneIcon size={34}/></a>
                             </DrawerClose>
                             <DrawerClose asChild>
                                 <a href={`mailto:${site.email}`} aria-label="Email B.C. Trees"><MailIcon size={34}/></a>

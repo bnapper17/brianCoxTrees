@@ -41,6 +41,10 @@ const jsonLd = {
   description,
   url: site.url,
   telephone: `+1-${site.phone}`,
+  contactPoint: [
+    { "@type": "ContactPoint", contactType: "office", telephone: `+1-${site.phone}` },
+    { "@type": "ContactPoint", contactType: "mobile", telephone: `+1-${site.cell}` },
+  ],
   email: site.email,
   logo: `${site.url}/images/logo.png`,
   image: `${site.url}/images/splash_cropped.jpg`,

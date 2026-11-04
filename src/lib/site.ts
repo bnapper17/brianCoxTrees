@@ -4,6 +4,8 @@ export const site = {
     url: "https://briancoxtrees.com",
     phone: "812-572-1047",
     phoneHref: "tel:+18125721047",
+    cell: "812-556-9713",
+    cellHref: "tel:+18125569713",
     email: "briancoxtrees@gmail.com",
     city: "English",
     state: "Indiana",
